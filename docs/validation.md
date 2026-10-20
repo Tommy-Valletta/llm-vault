@@ -17,9 +17,13 @@ Validation ran on native macOS 26.7.1 (build 25G241), using Python 3.12.2. These
 | Profile finalization, save and reload | Passed; saved profile loaded and validated by review preparation |
 | Synthetic contextual review | Passed; supplied changes, matching source snapshot and explicit context selections used |
 | JSON and Markdown report finalization | Complete; 3 findings, 0 rejected findings, 0 reviewer failures, no reported change/context gaps |
-| Skill discovery in the validating chat | Unavailable: persona-review was absent from the advertised skill catalogue; manual source/helper use is not a discovery pass |
+| Skill discovery in the original validating chat | Initially absent before installation; the refreshed catalogue later advertised persona-review |
 | Self-contained skill installation | Passed on Mac without overwriting an existing installation; all 20 installation-manifest entries and runtime bytes verified; installed doctor helper ran from an unrelated directory |
-| Fresh-session installed skill invocation | Unverified: an ephemeral native CLI process stopped during sandbox-restricted startup, before an assistant session or skill catalogue existed; a new Mac app chat is still required |
+| Fresh-session discovery | Passed in a new Mac assistant chat: persona-review was present in the initial skill catalogue before any filesystem search |
+| Fresh-session installed skill invocation | Passed: the chat read the advertised installed skill and ran its installed doctor helper with Python 3.12.2, exit 0; Git was available, gh/glab were absent |
+| Full distillation/review in the fresh discovery chat | Not repeated; its scope was discovery and installed-helper invocation. The complete synthetic workflow passed in the earlier Mac validation chat |
+
+The earlier ephemeral CLI discovery attempt stopped during sandbox-restricted startup before an assistant session or catalogue existed. That attempt established no discovery result. The subsequent new Mac app chat provides the discovery and invocation evidence above; it did not publish anything or change configuration.
 
 ### Canonical path assertion correction
 
@@ -46,4 +50,4 @@ These statuses were included with the candidate; they were not independently rep
 | Existing index integration | Scoped synthetic exports tested; no live Second Brain quality/isolation claim |
 | Windows Python 3.11 minimum version | Targeted compatibility; not separately run on that interpreter |
 
-Native helper results do not establish fresh-session skill discovery. No historical production performance or quality claim follows from these checks.
+Native helper tests, fresh-session discovery/invocation, and the earlier assistant-driven synthetic workflow are separate observations. They do not establish independent review accuracy, live provider/index quality, or historical production performance.

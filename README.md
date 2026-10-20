@@ -4,7 +4,7 @@ Turn permitted review examples into an inspectable persona, then apply its prior
 
 ## Current validation status
 
-The native Mac run completed the synthetic distillation, user acceptance, profile save/reload and contextual review workflow. After correcting a test assertion to compare canonical paths, the Mac helper suite passed **all 32 tests, with no skips**. Windows passed 31 tests with one host-dependent symlink test skipped. Fresh-session installed skill discovery remains unverified. See [validation status](docs/validation.md) for the observed evidence and limits.
+The native Mac run completed the synthetic distillation, user acceptance, profile save/reload and contextual review workflow. After correcting a test assertion to compare canonical paths, the Mac helper suite passed **all 32 tests, with no skips**. Windows passed 31 tests with one host-dependent symlink test skipped. A new Mac assistant chat discovered the installed skill from its initial catalogue and ran its doctor helper successfully. The full workflow was exercised in the earlier Mac validation chat. See [validation status](docs/validation.md) for the observed evidence and limits.
 
 ## Why I built this
 

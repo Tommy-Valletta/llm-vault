@@ -15,7 +15,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "c55416fff8c4ca7ad82c58a910e79e96bacdd19c7144031f4cfd0c2fb826b812"
+      "sha256": "4f26f33f4dbe9a3600337b13d1bd7faf2f155ee6d84c430949d7cd3601ae70e3"
     },
     {
       "path": "docs/architecture.md",
@@ -47,7 +47,7 @@
     },
     {
       "path": "docs/validation.md",
-      "sha256": "a28e1fd4ebdf9c652c20707d6f2fdc4ef93cd5a8450ee025221bd1b3e98bae29"
+      "sha256": "42313bfa9263f2e735d1e65857505204e339fb36be7732381824e516a6c9ce13"
     },
     {
       "path": "docs/workflow.md",
