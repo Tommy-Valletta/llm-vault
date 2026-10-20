@@ -1,6 +1,6 @@
 # Validation status
 
-The published source is based on the supplied native-acceptance candidate, identified by the user as commit `22daeea533a1a116c60bbd627002419c70e6a1d5`. The downloaded archive matched SHA-256 `f0f06c4be80d6f5408826da33a9a3f02d2d5d41c6e210d5c4f1d5d0a2a14f167`. It contained no Git metadata, so the archive-to-commit association was not independently verified. Publication retains the existing public repository history and creates a new commit; it does not recreate the supplied candidate commit.
+This follow-up retains the published reconstruction at `24dfc3168e1bcaa0a8a35afa554875c071b50c95` and corrects one test assertion. Runtime code is unchanged. The earlier native-acceptance archive matched SHA-256 `f0f06c4be80d6f5408826da33a9a3f02d2d5d41c6e210d5c4f1d5d0a2a14f167`; its source matches the locally reviewed candidate identified as `22daeea533a1a116c60bbd627002419c70e6a1d5`. The Mac check validated the archive hash, not its Git ancestry.
 
 ## Observed native Mac validation
 
@@ -9,7 +9,7 @@ Validation ran on native macOS 26.7.1 (build 25G241), using Python 3.12.2. These
 | Check | Observed result |
 |---|---|
 | Candidate archive SHA-256 | Matched the supplied expected hash |
-| Native acceptance suite | 31 passed, 1 failed, 0 errors, 0 skipped |
+| Native acceptance suite after assertion fix | 32 passed, 0 failed, 0 errors, 0 skipped |
 | Python requirement | Met: Python 3.12.2, minimum 3.11 |
 | Fictional ownership-history import | Passed; target-author examples and peer discussion retained in their respective roles |
 | Current-assistant distillation | Passed; priorities and reasoning only, no writing-style extraction |
@@ -18,11 +18,12 @@ Validation ran on native macOS 26.7.1 (build 25G241), using Python 3.12.2. These
 | Synthetic contextual review | Passed; supplied changes, matching source snapshot and explicit context selections used |
 | JSON and Markdown report finalization | Complete; 3 findings, 0 rejected findings, 0 reviewer failures, no reported change/context gaps |
 | Skill discovery in the validating chat | Unavailable: persona-review was absent from the advertised skill catalogue; manual source/helper use is not a discovery pass |
-| Fresh-session installed skill invocation | Untested |
+| Self-contained skill installation | Passed on Mac without overwriting an existing installation; all 20 installation-manifest entries and runtime bytes verified; installed doctor helper ran from an unrelated directory |
+| Fresh-session installed skill invocation | Unverified: an ephemeral native CLI process stopped during sandbox-restricted startup, before an assistant session or skill catalogue existed; a new Mac app chat is still required |
 
-### Remaining native test failure
+### Canonical path assertion correction
 
-`test_private_output_cannot_land_in_repository` fails its final path-equality assertion on macOS. The helper canonicalizes a temporary path to `/private/var/...`, while the test expects the unresolved `/var/...` alias. Earlier assertions in that test exercise Git-boundary rejection and exclusive writes; the observed failure is the final comparison of the two path spellings. The candidate source and test were not changed to conceal this failure.
+The original Mac run recorded 31 passed and one failed assertion. `test_private_output_cannot_land_in_repository` expected an unresolved temporary path while the helper correctly returned its canonical destination. The assertion now resolves the expected path too. Its Git-boundary and exclusive-write checks remain intact; runtime behavior is unchanged. A separate Mac copy with exactly this test correction passed all 32 tests. Its `tests/test_workflow.py` SHA-256 matches the Windows copy: `ef0674186643eeaa5cbcc69d12537a1ddef12bcaad9438b02a121c3cca51ea1b`.
 
 The acceptance report was written after granting output-directory access required by the local sandbox. Raw logs and machine-specific paths remain private and are not included in this repository.
 
@@ -38,11 +39,11 @@ These statuses were included with the candidate; they were not independently rep
 
 | Check | Candidate-reported evidence/status |
 |---|---|
-| Native Windows helper tests | Passed on Python 3.12; complete CLI handoff, installation, Unicode/space paths, context contracts and baseline regressions |
+| Native Windows helper tests | Repeated after assertion fix on Python 3.12.14: 31 passed, one directory-symlink test skipped because this host cannot create it; complete CLI handoff, installation, Unicode/space paths, context contracts and baseline regressions |
 | Skill structural validator | Passed with the official local validator |
 | Authoring-assistant synthetic distillation/review | Recorded worked example and generic/persona/no-context comparison; shared authoring session, not independent |
 | GitHub/GitLab export normalization | Synthetic fixtures tested; live connector-specific acceptance pending |
 | Existing index integration | Scoped synthetic exports tested; no live Second Brain quality/isolation claim |
 | Windows Python 3.11 minimum version | Targeted compatibility; not separately run on that interpreter |
 
-Do not describe this candidate as passing every native test or having verified fresh-session discovery. No historical production performance or quality claim follows from these checks.
+Native helper results do not establish fresh-session skill discovery. No historical production performance or quality claim follows from these checks.

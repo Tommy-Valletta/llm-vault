@@ -15,7 +15,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "c433ddf1f5375bb70a1e8f2ce2da4683c40e5c58166a451439890032acf70213"
+      "sha256": "c55416fff8c4ca7ad82c58a910e79e96bacdd19c7144031f4cfd0c2fb826b812"
     },
     {
       "path": "docs/architecture.md",
@@ -47,7 +47,7 @@
     },
     {
       "path": "docs/validation.md",
-      "sha256": "259750cd39f755bbe5c95448030325d4b6f9c4f574df7c3daf0f563ddac4ed6a"
+      "sha256": "a28e1fd4ebdf9c652c20707d6f2fdc4ef93cd5a8450ee025221bd1b3e98bae29"
     },
     {
       "path": "docs/workflow.md",
@@ -271,7 +271,7 @@
     },
     {
       "path": "tests/test_workflow.py",
-      "sha256": "ad4e8b0d218123af0154e64915d7b6ad2e09b3e0248161eaadd2c37a613aeda7"
+      "sha256": "ef0674186643eeaa5cbcc69d12537a1ddef12bcaad9438b02a121c3cca51ea1b"
     },
     {
       "path": "tools/acceptance.py",

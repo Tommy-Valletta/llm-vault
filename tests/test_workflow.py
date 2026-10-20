@@ -164,7 +164,7 @@ class WorkflowTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);(root/'checkout').mkdir();(root/'checkout'/'.git').mkdir()
             target=private_output(root/'checkout'/'..'/'private-artifact.json')
-            self.assertEqual(target,root/'private-artifact.json')
+            self.assertEqual(target,(root/'private-artifact.json').resolve())
 
     def test_complete_scoring_requires_explicit_accounting_and_rationale(self):
         cases=[{'id':'one','changes':change(),'context':context(),'judgments':[{'id':'expected','description':'A synthetic issue.'}]}]
