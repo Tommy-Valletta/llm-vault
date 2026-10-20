@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "kind": "history",
+  "payload": {
+    "subject": "reviewer",
+    "records": [
+      {
+        "id": "E-5a9c978889df4762",
+        "role": "target",
+        "text": "Some callers supply this argument by keyword. A parameter rename needs a compatibility path even when positional calls still work.",
+        "thread_id": "T-fb77f426ebc0",
+        "reply_to": null,
+        "code_context": ""
+      },
+      {
+        "id": "E-ce183aae8bad4d2a",
+        "role": "target",
+        "text": "The response shape is part of this public function's contract. Returning a plain flag will break code that reads the named result fields.",
+        "thread_id": "T-f47c07d2100d",
+        "reply_to": null,
+        "code_context": ""
+      },
+      {
+        "id": "E-bf20849a21dd5e4a",
+        "role": "target",
+        "text": "Before simplifying this entry point, check how existing client code passes arguments and consumes the return value.",
+        "thread_id": "T-4c50449d0fee",
+        "reply_to": null,
+        "code_context": ""
+      }
+    ],
+    "collection": {
+      "complete": null,
+      "gaps": [],
+      "coverage": "selected export only"
+    }
+  },
+  "digest": "e0d58803db7192413022790f2f9c301b862b33eb2b8f3a99f5d22cce7aff82f3"
+}

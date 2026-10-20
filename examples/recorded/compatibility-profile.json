@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "kind": "persona_profile",
+  "payload": {
+    "name": "Public caller compatibility",
+    "principles": [
+      {
+        "id": "keyword-contract",
+        "principle": "Keep supported keyword argument names working, or provide an explicit migration path.",
+        "applies_when": "An exposed function changes its signature or parameter names.",
+        "rationale": "A positional call can remain valid while an existing named-argument call fails before the function body runs.",
+        "evidence_ids": [
+          "E-5a9c978889df4762",
+          "E-bf20849a21dd5e4a"
+        ],
+        "uncertainties": [
+          "The examples do not establish a versioning policy or which entry points are public."
+        ]
+      },
+      {
+        "id": "result-contract",
+        "principle": "Treat the observable return structure as a compatibility commitment to existing consumers.",
+        "applies_when": "A change replaces, removes or reshapes values returned to callers.",
+        "rationale": "Consumers may access named fields even when the replacement value appears to communicate the same broad success state.",
+        "evidence_ids": [
+          "E-ce183aae8bad4d2a",
+          "E-bf20849a21dd5e4a"
+        ],
+        "uncertainties": [
+          "Intentional breaking releases may be valid, but that intent is not shown by these examples."
+        ]
+      }
+    ],
+    "limitations": [
+      "Only fictional API-review examples support this profile; it does not establish general review quality."
+    ],
+    "request_digest": "9b257f178d86dee9fdf9f3b463e6cd2fb62ad5530a84a8e2b37694c81a1b8196",
+    "history_digest": "e0d58803db7192413022790f2f9c301b862b33eb2b8f3a99f5d22cce7aff82f3",
+    "style": null
+  },
+  "digest": "c34bd0b0b4323ddadd3ca4da5b58eba0df6866b6c45273c234bca9299307f90c"
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Persona Review"
+  short_description: "Distill review personas and apply scoped context"
+  default_prompt: "Use $persona-review to distill a persona or review a change with saved personas."

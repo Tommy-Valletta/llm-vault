@@ -1,0 +1,72 @@
+[
+  {
+    "id": "synthetic-channel-change",
+    "changes": {
+      "schema_version": 1,
+      "kind": "changes",
+      "payload": {
+        "repository": "synthetic-channel-library",
+        "head_revision": "synthetic-after",
+        "files": [
+          {
+            "path": "library/transmit.py",
+            "patch": "@@ -1,3 +1,4 @@\n-def transmit(channel, payload, deadline=5):\n-    channel.send(payload, timeout=deadline)\n-    return {\"sent\": True}\n+def transmit(channel, payload, limit=5):\n+    channel.send(payload, timeout=limit)\n+    channel.close()\n+    return True\n",
+            "changed_lines": [
+              1,
+              2,
+              3,
+              4
+            ]
+          }
+        ],
+        "gaps": []
+      },
+      "digest": "335f297e9ec76502073a8bd44c403e277e238d04824db4678c6466ffb5a4eff5"
+    },
+    "context": {
+      "schema_version": 1,
+      "kind": "context",
+      "payload": {
+        "spec": {
+          "scope": "codebase",
+          "retrieval": "auto",
+          "paths": [],
+          "symbols": [],
+          "provider": null,
+          "max_characters": 50000
+        },
+        "repository": "synthetic-channel-library",
+        "actual_retrieval": "direct",
+        "evidence": [
+          {
+            "id": "C-dfadd6f51eb5c4ad",
+            "path": "clients/use_channel.py",
+            "start_line": 1,
+            "end_line": 3,
+            "excerpt": "result = transmit(channel, data, deadline=3)\nif result[\"sent\"]:\n    channel.send(next_data)",
+            "revision": "synthetic-after",
+            "content_sha256": "91029d14cf62f9842506af369eef39bd4ed66c2d06f17cbd1e90593d29840aaa",
+            "verification": "provided-source-snapshot"
+          }
+        ],
+        "gaps": [],
+        "outside_scope_changes": []
+      },
+      "digest": "231c54d24badc6fb14342342e1f018bfa8a0f1b850c35586799dd6747ee52e74"
+    },
+    "judgments": [
+      {
+        "id": "borrowed-channel",
+        "description": "Unconditional cleanup conflicts with caller reuse for valid invocations."
+      },
+      {
+        "id": "keyword-argument",
+        "description": "The existing keyword call is no longer accepted."
+      },
+      {
+        "id": "return-structure",
+        "description": "An existing mapping consumer cannot consume a boolean."
+      }
+    ]
+  }
+]

@@ -1,0 +1,24 @@
+{
+  "request_digest": "ab12600b29367b3e14ac3a1befcf3f9dbdb67a6da958331ba82d40e7a3937631",
+  "name": "Borrowed resource lifetime",
+  "principles": [
+    {
+      "id": "borrowed-lifetime",
+      "principle": "Keep borrowed resources usable after the helper returns; arrange cleanup for resources the helper creates.",
+      "applies_when": "A change receives an existing connection or handle, or adds creation or cleanup of a reusable resource.",
+      "rationale": "Closing a borrowed object can break later operations in the caller. Cleanup responsibility should follow creation rather than mere use.",
+      "evidence_ids": [
+        "E-2ba8c9b154642be3",
+        "E-2a6be4ce33d1e557",
+        "E-76d6685e30db52fd"
+      ],
+      "uncertainties": [
+        "The examples do not address explicit ownership-transfer APIs or reference-counted resources."
+      ]
+    }
+  ],
+  "limitations": [
+    "Derived from a small fictional discussion; this demonstrates the workflow, not a real person's judgment."
+  ],
+  "style": null
+}

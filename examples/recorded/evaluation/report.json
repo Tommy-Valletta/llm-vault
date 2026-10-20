@@ -1,0 +1,299 @@
+{
+  "schema_version": 1,
+  "kind": "evaluation_report",
+  "payload": {
+    "tasks": [
+      {
+        "id": "R-7598e5de0661b8f7",
+        "case_id": "synthetic-channel-change",
+        "condition": "generic",
+        "request_digest": "faff92d0af61d7cf0726b691c080df5005648e41fc6429e4e4b799bd945d4a97",
+        "changes_digest": "335f297e9ec76502073a8bd44c403e277e238d04824db4678c6466ffb5a4eff5",
+        "context_digest": "231c54d24badc6fb14342342e1f018bfa8a0f1b850c35586799dd6747ee52e74"
+      },
+      {
+        "id": "R-7e0e604a8f536b3a",
+        "case_id": "synthetic-channel-change",
+        "condition": "persona",
+        "request_digest": "15d2ab016c2000a35de06c9cccb51b4afdafa0d0f49875c6acbfc2c6aac8beee",
+        "changes_digest": "335f297e9ec76502073a8bd44c403e277e238d04824db4678c6466ffb5a4eff5",
+        "context_digest": "231c54d24badc6fb14342342e1f018bfa8a0f1b850c35586799dd6747ee52e74"
+      },
+      {
+        "id": "R-dfd61a4f5e6c0c96",
+        "case_id": "synthetic-channel-change",
+        "condition": "no-context",
+        "request_digest": "ee776a8b4920ecc78ddb1ef468bd7f7f4bdde536e351d1dcdc7cb305e4514dc9",
+        "changes_digest": "335f297e9ec76502073a8bd44c403e277e238d04824db4678c6466ffb5a4eff5",
+        "context_digest": "a74ea91c3c633732302198b4de566fd9ef1ea828bbce29f4af63acc01e7ffbb0"
+      }
+    ],
+    "missing": [],
+    "reports": {
+      "R-7598e5de0661b8f7": {
+        "schema_version": 1,
+        "kind": "review_report",
+        "payload": {
+          "request_digest": "faff92d0af61d7cf0726b691c080df5005648e41fc6429e4e4b799bd945d4a97",
+          "run": {
+            "kind": "assistant",
+            "host": "Codex session",
+            "model": "unknown",
+            "isolation": "shared-session"
+          },
+          "status": "complete",
+          "findings": [
+            {
+              "path": "library/transmit.py",
+              "line": 1,
+              "rule": "keyword-call-broken",
+              "severity": "high",
+              "message": "The captured client calls transmit with deadline=3. Replacing that parameter with limit makes that existing call raise TypeError before any send occurs. Retain the supported keyword or provide a deliberate compatibility path.",
+              "requires_context": true,
+              "context_evidence_ids": [
+                "C-dfadd6f51eb5c4ad"
+              ],
+              "principle_ids": [],
+              "id": "F-68185c539dbde292",
+              "reviewers": [
+                "generic"
+              ],
+              "attributions": [
+                {
+                  "reviewer": "generic",
+                  "principle_ids": [],
+                  "message": "The captured client calls transmit with deadline=3. Replacing that parameter with limit makes that existing call raise TypeError before any send occurs. Retain the supported keyword or provide a deliberate compatibility path."
+                }
+              ]
+            },
+            {
+              "path": "library/transmit.py",
+              "line": 3,
+              "rule": "borrowed-channel-closed",
+              "severity": "high",
+              "message": "A successful invocation now closes the channel supplied by its caller. The captured client expects to send more data through that same channel after transmit returns. For callers using a valid argument form, this cleanup breaks subsequent channel reuse. Leave borrowed channels open unless ownership transfer is an explicit API contract.",
+              "requires_context": true,
+              "context_evidence_ids": [
+                "C-dfadd6f51eb5c4ad"
+              ],
+              "principle_ids": [],
+              "id": "F-a4d614870c006703",
+              "reviewers": [
+                "generic"
+              ],
+              "attributions": [
+                {
+                  "reviewer": "generic",
+                  "principle_ids": [],
+                  "message": "A successful invocation now closes the channel supplied by its caller. The captured client expects to send more data through that same channel after transmit returns. For callers using a valid argument form, this cleanup breaks subsequent channel reuse. Leave borrowed channels open unless ownership transfer is an explicit API contract."
+                }
+              ]
+            },
+            {
+              "path": "library/transmit.py",
+              "line": 4,
+              "rule": "result-shape-broken",
+              "severity": "high",
+              "message": "The function previously returned a mapping containing sent, and the captured client reads result[\"sent\"]. Returning a boolean breaks that consumer once invocation succeeds, including after resolving the separate keyword incompatibility. Preserve the return structure or migrate callers explicitly.",
+              "requires_context": true,
+              "context_evidence_ids": [
+                "C-dfadd6f51eb5c4ad"
+              ],
+              "principle_ids": [],
+              "id": "F-ca19173f84902b1a",
+              "reviewers": [
+                "generic"
+              ],
+              "attributions": [
+                {
+                  "reviewer": "generic",
+                  "principle_ids": [],
+                  "message": "The function previously returned a mapping containing sent, and the captured client reads result[\"sent\"]. Returning a boolean breaks that consumer once invocation succeeds, including after resolving the separate keyword incompatibility. Preserve the return structure or migrate callers explicitly."
+                }
+              ]
+            }
+          ],
+          "failures": [],
+          "rejected": [],
+          "reviewer_notes": [
+            {
+              "reviewer": "generic",
+              "limitation": "This is a synthetic review in the authoring session; it is not an independent experiment."
+            }
+          ],
+          "context": {
+            "spec": {
+              "scope": "codebase",
+              "retrieval": "auto",
+              "paths": [],
+              "symbols": [],
+              "provider": null,
+              "max_characters": 50000
+            },
+            "repository": "synthetic-channel-library",
+            "actual_retrieval": "direct",
+            "evidence": [
+              {
+                "id": "C-dfadd6f51eb5c4ad",
+                "path": "clients/use_channel.py",
+                "start_line": 1,
+                "end_line": 3,
+                "excerpt": "result = transmit(channel, data, deadline=3)\nif result[\"sent\"]:\n    channel.send(next_data)",
+                "revision": "synthetic-after",
+                "content_sha256": "91029d14cf62f9842506af369eef39bd4ed66c2d06f17cbd1e90593d29840aaa",
+                "verification": "provided-source-snapshot"
+              }
+            ],
+            "gaps": [],
+            "outside_scope_changes": []
+          },
+          "change_gaps": []
+        },
+        "digest": "215fd50e6f27448116283b3595da48da961a929e7407bbd3ff40eb5064a7c3f8"
+      },
+      "R-7e0e604a8f536b3a": {
+        "schema_version": 1,
+        "kind": "review_report",
+        "payload": {
+          "request_digest": "15d2ab016c2000a35de06c9cccb51b4afdafa0d0f49875c6acbfc2c6aac8beee",
+          "run": {
+            "kind": "assistant",
+            "host": "Codex session",
+            "model": "unknown",
+            "isolation": "shared-session"
+          },
+          "status": "complete",
+          "findings": [
+            {
+              "path": "library/transmit.py",
+              "line": 3,
+              "rule": "borrowed-channel-closed",
+              "severity": "high",
+              "message": "A successful invocation now closes the channel supplied by its caller. The captured client expects to send more data through that same channel after transmit returns. For callers using a valid argument form, this cleanup breaks subsequent channel reuse. Leave borrowed channels open unless ownership transfer is an explicit API contract.",
+              "requires_context": true,
+              "context_evidence_ids": [
+                "C-dfadd6f51eb5c4ad"
+              ],
+              "principle_ids": [
+                "borrowed-lifetime"
+              ],
+              "id": "F-a4d614870c006703",
+              "reviewers": [
+                "P-d560e9cf866a5598"
+              ],
+              "attributions": [
+                {
+                  "reviewer": "P-d560e9cf866a5598",
+                  "principle_ids": [
+                    "borrowed-lifetime"
+                  ],
+                  "message": "A successful invocation now closes the channel supplied by its caller. The captured client expects to send more data through that same channel after transmit returns. For callers using a valid argument form, this cleanup breaks subsequent channel reuse. Leave borrowed channels open unless ownership transfer is an explicit API contract."
+                }
+              ]
+            }
+          ],
+          "failures": [],
+          "rejected": [],
+          "reviewer_notes": [
+            {
+              "reviewer": "P-d560e9cf866a5598",
+              "limitation": "Review emphasis follows the selected ownership profile; other concerns can remain."
+            }
+          ],
+          "context": {
+            "spec": {
+              "scope": "codebase",
+              "retrieval": "auto",
+              "paths": [],
+              "symbols": [],
+              "provider": null,
+              "max_characters": 50000
+            },
+            "repository": "synthetic-channel-library",
+            "actual_retrieval": "direct",
+            "evidence": [
+              {
+                "id": "C-dfadd6f51eb5c4ad",
+                "path": "clients/use_channel.py",
+                "start_line": 1,
+                "end_line": 3,
+                "excerpt": "result = transmit(channel, data, deadline=3)\nif result[\"sent\"]:\n    channel.send(next_data)",
+                "revision": "synthetic-after",
+                "content_sha256": "91029d14cf62f9842506af369eef39bd4ed66c2d06f17cbd1e90593d29840aaa",
+                "verification": "provided-source-snapshot"
+              }
+            ],
+            "gaps": [],
+            "outside_scope_changes": []
+          },
+          "change_gaps": []
+        },
+        "digest": "8a9361d5292b4aee650db9ec8fdeb067b814f1e30c00281a13ae75894e7183d3"
+      },
+      "R-dfd61a4f5e6c0c96": {
+        "schema_version": 1,
+        "kind": "review_report",
+        "payload": {
+          "request_digest": "ee776a8b4920ecc78ddb1ef468bd7f7f4bdde536e351d1dcdc7cb305e4514dc9",
+          "run": {
+            "kind": "assistant",
+            "host": "Codex session",
+            "model": "unknown",
+            "isolation": "shared-session"
+          },
+          "status": "complete",
+          "findings": [],
+          "failures": [],
+          "rejected": [],
+          "reviewer_notes": [
+            {
+              "reviewer": "P-d560e9cf866a5598",
+              "limitation": "The patch adds cleanup of a passed resource, but no surrounding ownership-transfer contract is available. I cannot establish the caller-reuse violation from captured context in this condition."
+            }
+          ],
+          "context": {
+            "spec": {
+              "scope": "none",
+              "retrieval": "auto",
+              "paths": [],
+              "symbols": [],
+              "provider": null,
+              "max_characters": 50000
+            },
+            "repository": "synthetic-channel-library",
+            "actual_retrieval": "none",
+            "evidence": [],
+            "gaps": [],
+            "outside_scope_changes": []
+          },
+          "change_gaps": []
+        },
+        "digest": "8f8192f5a64620bd77dcd334f451f8170a04046f519a8ccda992e660724e2ec8"
+      }
+    },
+    "scoring": {
+      "adjudicator": "assistant",
+      "independent": false,
+      "per_task": {
+        "R-7598e5de0661b8f7": {
+          "matched": 3,
+          "false_positives": 0,
+          "missed": 0
+        },
+        "R-7e0e604a8f536b3a": {
+          "matched": 1,
+          "false_positives": 0,
+          "missed": 2
+        },
+        "R-dfd61a4f5e6c0c96": {
+          "matched": 0,
+          "false_positives": 0,
+          "missed": 3
+        }
+      },
+      "evidence_label": "assistant-run"
+    },
+    "limits": "Assistant runs are nondeterministic. Replays only test plumbing. Shared sessions are not independent experiments."
+  },
+  "digest": "7e08f4d4735250cfea09c260f2bcf4cc07e13de134066074ac5f35afe7bc4efb"
+}

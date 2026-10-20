@@ -1,0 +1,9 @@
+{
+  "repository": "synthetic-channel-library",
+  "head_revision": "synthetic-after",
+  "files": [{
+    "path": "library/transmit.py",
+    "patch": "@@ -1,3 +1,4 @@\n-def transmit(channel, payload, deadline=5):\n-    channel.send(payload, timeout=deadline)\n-    return {\"sent\": True}\n+def transmit(channel, payload, limit=5):\n+    channel.send(payload, timeout=limit)\n+    channel.close()\n+    return True\n"
+  }],
+  "gaps": []
+}

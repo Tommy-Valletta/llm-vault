@@ -1,0 +1,34 @@
+{
+  "request_digest": "15d2ab016c2000a35de06c9cccb51b4afdafa0d0f49875c6acbfc2c6aac8beee",
+  "run": {
+    "kind": "assistant",
+    "host": "Codex session",
+    "model": "unknown",
+    "isolation": "shared-session"
+  },
+  "reviewers": [
+    {
+      "id": "P-d560e9cf866a5598",
+      "status": "ok",
+      "findings": [
+        {
+          "path": "library/transmit.py",
+          "line": 3,
+          "rule": "borrowed-channel-closed",
+          "severity": "high",
+          "message": "A successful invocation now closes the channel supplied by its caller. The captured client expects to send more data through that same channel after transmit returns. For callers using a valid argument form, this cleanup breaks subsequent channel reuse. Leave borrowed channels open unless ownership transfer is an explicit API contract.",
+          "principle_ids": [
+            "borrowed-lifetime"
+          ],
+          "context_evidence_ids": [
+            "C-dfadd6f51eb5c4ad"
+          ],
+          "requires_context": true
+        }
+      ],
+      "limitations": [
+        "Review emphasis follows the selected ownership profile; other concerns can remain."
+      ]
+    }
+  ]
+}

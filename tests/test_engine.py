@@ -2,7 +2,7 @@ import json
 import unittest
 from pathlib import Path
 
-from reviewbench.engine import Change, Finding, LocalReviewer, compile_personas, make_request, review
+from reviewbench.baseline import Change, Finding, LocalReviewer, compile_personas, make_request, review
 from reviewbench.evaluation import evaluate
 
 ROOT = Path(__file__).resolve().parent.parent

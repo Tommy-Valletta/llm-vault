@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "kind": "review_report",
+  "payload": {
+    "request_digest": "15d2ab016c2000a35de06c9cccb51b4afdafa0d0f49875c6acbfc2c6aac8beee",
+    "run": {
+      "kind": "assistant",
+      "host": "Codex session",
+      "model": "unknown",
+      "isolation": "shared-session"
+    },
+    "status": "complete",
+    "findings": [
+      {
+        "path": "library/transmit.py",
+        "line": 3,
+        "rule": "borrowed-channel-closed",
+        "severity": "high",
+        "message": "A successful invocation now closes the channel supplied by its caller. The captured client expects to send more data through that same channel after transmit returns. For callers using a valid argument form, this cleanup breaks subsequent channel reuse. Leave borrowed channels open unless ownership transfer is an explicit API contract.",
+        "requires_context": true,
+        "context_evidence_ids": [
+          "C-dfadd6f51eb5c4ad"
+        ],
+        "principle_ids": [
+          "borrowed-lifetime"
+        ],
+        "id": "F-a4d614870c006703",
+        "reviewers": [
+          "P-d560e9cf866a5598"
+        ],
+        "attributions": [
+          {
+            "reviewer": "P-d560e9cf866a5598",
+            "principle_ids": [
+              "borrowed-lifetime"
+            ],
+            "message": "A successful invocation now closes the channel supplied by its caller. The captured client expects to send more data through that same channel after transmit returns. For callers using a valid argument form, this cleanup breaks subsequent channel reuse. Leave borrowed channels open unless ownership transfer is an explicit API contract."
+          }
+        ]
+      }
+    ],
+    "failures": [],
+    "rejected": [],
+    "reviewer_notes": [],
+    "context": {
+      "spec": {
+        "scope": "codebase",
+        "retrieval": "auto",
+        "paths": [],
+        "symbols": [],
+        "provider": null,
+        "max_characters": 50000
+      },
+      "repository": "synthetic-channel-library",
+      "actual_retrieval": "direct",
+      "evidence": [
+        {
+          "id": "C-dfadd6f51eb5c4ad",
+          "path": "clients/use_channel.py",
+          "start_line": 1,
+          "end_line": 3,
+          "excerpt": "result = transmit(channel, data, deadline=3)\nif result[\"sent\"]:\n    channel.send(next_data)",
+          "revision": "synthetic-after",
+          "content_sha256": "91029d14cf62f9842506af369eef39bd4ed66c2d06f17cbd1e90593d29840aaa",
+          "verification": "provided-source-snapshot"
+        }
+      ],
+      "gaps": [],
+      "outside_scope_changes": []
+    },
+    "change_gaps": []
+  },
+  "digest": "2ca670738fdc409ae22f26ee38d10f3ed30d57f603d07b957a4d919eb8552bad"
+}

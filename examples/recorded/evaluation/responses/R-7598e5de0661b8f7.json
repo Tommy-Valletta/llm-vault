@@ -1,0 +1,56 @@
+{
+  "request_digest": "faff92d0af61d7cf0726b691c080df5005648e41fc6429e4e4b799bd945d4a97",
+  "run": {
+    "kind": "assistant",
+    "host": "Codex session",
+    "model": "unknown",
+    "isolation": "shared-session"
+  },
+  "reviewers": [
+    {
+      "id": "generic",
+      "status": "ok",
+      "findings": [
+        {
+          "path": "library/transmit.py",
+          "line": 3,
+          "rule": "borrowed-channel-closed",
+          "severity": "high",
+          "message": "A successful invocation now closes the channel supplied by its caller. The captured client expects to send more data through that same channel after transmit returns. For callers using a valid argument form, this cleanup breaks subsequent channel reuse. Leave borrowed channels open unless ownership transfer is an explicit API contract.",
+          "principle_ids": [],
+          "context_evidence_ids": [
+            "C-dfadd6f51eb5c4ad"
+          ],
+          "requires_context": true
+        },
+        {
+          "path": "library/transmit.py",
+          "line": 1,
+          "rule": "keyword-call-broken",
+          "severity": "high",
+          "message": "The captured client calls transmit with deadline=3. Replacing that parameter with limit makes that existing call raise TypeError before any send occurs. Retain the supported keyword or provide a deliberate compatibility path.",
+          "principle_ids": [],
+          "context_evidence_ids": [
+            "C-dfadd6f51eb5c4ad"
+          ],
+          "requires_context": true
+        },
+        {
+          "path": "library/transmit.py",
+          "line": 4,
+          "rule": "result-shape-broken",
+          "severity": "high",
+          "message": "The function previously returned a mapping containing sent, and the captured client reads result[\"sent\"]. Returning a boolean breaks that consumer once invocation succeeds, including after resolving the separate keyword incompatibility. Preserve the return structure or migrate callers explicitly.",
+          "principle_ids": [],
+          "context_evidence_ids": [
+            "C-dfadd6f51eb5c4ad"
+          ],
+          "requires_context": true
+        }
+      ],
+      "limitations": [
+        "This is a synthetic review in the authoring session; it is not an independent experiment."
+      ]
+    }
+  ]
+}

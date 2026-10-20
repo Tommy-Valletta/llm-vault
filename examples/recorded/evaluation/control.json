@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "kind": "evaluation_control",
+  "payload": {
+    "tasks": [
+      {
+        "id": "R-7598e5de0661b8f7",
+        "case_id": "synthetic-channel-change",
+        "condition": "generic",
+        "request_digest": "faff92d0af61d7cf0726b691c080df5005648e41fc6429e4e4b799bd945d4a97",
+        "changes_digest": "335f297e9ec76502073a8bd44c403e277e238d04824db4678c6466ffb5a4eff5",
+        "context_digest": "231c54d24badc6fb14342342e1f018bfa8a0f1b850c35586799dd6747ee52e74"
+      },
+      {
+        "id": "R-7e0e604a8f536b3a",
+        "case_id": "synthetic-channel-change",
+        "condition": "persona",
+        "request_digest": "15d2ab016c2000a35de06c9cccb51b4afdafa0d0f49875c6acbfc2c6aac8beee",
+        "changes_digest": "335f297e9ec76502073a8bd44c403e277e238d04824db4678c6466ffb5a4eff5",
+        "context_digest": "231c54d24badc6fb14342342e1f018bfa8a0f1b850c35586799dd6747ee52e74"
+      },
+      {
+        "id": "R-dfd61a4f5e6c0c96",
+        "case_id": "synthetic-channel-change",
+        "condition": "no-context",
+        "request_digest": "ee776a8b4920ecc78ddb1ef468bd7f7f4bdde536e351d1dcdc7cb305e4514dc9",
+        "changes_digest": "335f297e9ec76502073a8bd44c403e277e238d04824db4678c6466ffb5a4eff5",
+        "context_digest": "a74ea91c3c633732302198b4de566fd9ef1ea828bbce29f4af63acc01e7ffbb0"
+      }
+    ],
+    "judgments": {
+      "synthetic-channel-change": [
+        {
+          "id": "borrowed-channel",
+          "description": "Unconditional cleanup conflicts with caller reuse for valid invocations."
+        },
+        {
+          "id": "keyword-argument",
+          "description": "The existing keyword call is no longer accepted."
+        },
+        {
+          "id": "return-structure",
+          "description": "An existing mapping consumer cannot consume a boolean."
+        }
+      ]
+    },
+    "note": "Keep this scoring control away from reviewer sessions; reviewer packets contain no judgments."
+  },
+  "digest": "7a36bd753d0c2ffa66747cfba6f7a99a28689d5ef979ad0988ed22412893f1a8"
+}

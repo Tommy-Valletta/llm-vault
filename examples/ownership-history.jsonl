@@ -1,0 +1,4 @@
+{"id":"o-1","author":"fictional-author","thread_id":"thread-a","text":"This channel was passed into the function. The caller may still need it afterwards, so cleanup belongs to whoever created it."}
+{"id":"o-2","author":"fictional-author","thread_id":"thread-b","text":"Our helper should finish its own work without changing whether an injected connection can be reused."}
+{"id":"o-3","author":"fictional-peer","thread_id":"thread-b","text":"What if the helper creates the connection itself? Then closing it here seems appropriate.","reply_to":"o-2"}
+{"id":"o-4","author":"fictional-author","thread_id":"thread-b","text":"Agreed. Handles constructed inside the helper should be cleaned up there; borrowed ones should remain available.","reply_to":"o-3"}

@@ -1,0 +1,18 @@
+{
+  "label": "New synthetic worked example in the authoring assistant session; not an independent or held-out benchmark.",
+  "source": "All example histories, changes and context were authored for this public rebuild.",
+  "inference": "Current assistant derived the profiles and wrote the reviews; Python validated artifacts. No extra model/backend was called.",
+  "run_kind": "assistant",
+  "isolation": "shared-session",
+  "host": "Codex session",
+  "model": "unknown",
+  "findings_per_profile": {
+    "ownership": 1,
+    "compatibility": 2
+  },
+  "limitations": [
+    "The assistant also authored the examples and knows the intended concerns.",
+    "Different outputs illustrate persona application, not improved general accuracy.",
+    "No original operational results or data are included."
+  ]
+}

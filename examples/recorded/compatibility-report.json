@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "kind": "review_report",
+  "payload": {
+    "request_digest": "c10870079054701a2c3702e379d374fae7f08d644a80aab074c609db7b285c79",
+    "run": {
+      "kind": "assistant",
+      "host": "Codex session",
+      "model": "unknown",
+      "isolation": "shared-session"
+    },
+    "status": "complete",
+    "findings": [
+      {
+        "path": "library/transmit.py",
+        "line": 1,
+        "rule": "keyword-call-broken",
+        "severity": "high",
+        "message": "The captured client calls transmit with deadline=3. Replacing that parameter with limit makes that existing call raise TypeError before any send occurs. Retain the supported keyword or provide a deliberate compatibility path.",
+        "requires_context": true,
+        "context_evidence_ids": [
+          "C-dfadd6f51eb5c4ad"
+        ],
+        "principle_ids": [
+          "keyword-contract"
+        ],
+        "id": "F-68185c539dbde292",
+        "reviewers": [
+          "P-c34bd0b0b4323dda"
+        ],
+        "attributions": [
+          {
+            "reviewer": "P-c34bd0b0b4323dda",
+            "principle_ids": [
+              "keyword-contract"
+            ],
+            "message": "The captured client calls transmit with deadline=3. Replacing that parameter with limit makes that existing call raise TypeError before any send occurs. Retain the supported keyword or provide a deliberate compatibility path."
+          }
+        ]
+      },
+      {
+        "path": "library/transmit.py",
+        "line": 4,
+        "rule": "result-shape-broken",
+        "severity": "high",
+        "message": "The function previously returned a mapping containing sent, and the captured client reads result[\"sent\"]. Returning a boolean breaks that consumer once invocation succeeds, including after resolving the separate keyword incompatibility. Preserve the return structure or migrate callers explicitly.",
+        "requires_context": true,
+        "context_evidence_ids": [
+          "C-dfadd6f51eb5c4ad"
+        ],
+        "principle_ids": [
+          "result-contract"
+        ],
+        "id": "F-ca19173f84902b1a",
+        "reviewers": [
+          "P-c34bd0b0b4323dda"
+        ],
+        "attributions": [
+          {
+            "reviewer": "P-c34bd0b0b4323dda",
+            "principle_ids": [
+              "result-contract"
+            ],
+            "message": "The function previously returned a mapping containing sent, and the captured client reads result[\"sent\"]. Returning a boolean breaks that consumer once invocation succeeds, including after resolving the separate keyword incompatibility. Preserve the return structure or migrate callers explicitly."
+          }
+        ]
+      }
+    ],
+    "failures": [],
+    "rejected": [],
+    "reviewer_notes": [],
+    "context": {
+      "spec": {
+        "scope": "codebase",
+        "retrieval": "auto",
+        "paths": [],
+        "symbols": [],
+        "provider": null,
+        "max_characters": 50000
+      },
+      "repository": "synthetic-channel-library",
+      "actual_retrieval": "direct",
+      "evidence": [
+        {
+          "id": "C-dfadd6f51eb5c4ad",
+          "path": "clients/use_channel.py",
+          "start_line": 1,
+          "end_line": 3,
+          "excerpt": "result = transmit(channel, data, deadline=3)\nif result[\"sent\"]:\n    channel.send(next_data)",
+          "revision": "synthetic-after",
+          "content_sha256": "91029d14cf62f9842506af369eef39bd4ed66c2d06f17cbd1e90593d29840aaa",
+          "verification": "provided-source-snapshot"
+        }
+      ],
+      "gaps": [],
+      "outside_scope_changes": []
+    },
+    "change_gaps": []
+  },
+  "digest": "c898763a6d8ca6007092e33f932e13d892710fd459815d5479a0ef8f65529fbc"
+}

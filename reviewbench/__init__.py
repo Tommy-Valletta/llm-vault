@@ -1,1 +1,1 @@
-"""A public reconstruction using exclusively synthetic inputs."""
+"""Assistant-guided review workflows; published examples are entirely synthetic."""

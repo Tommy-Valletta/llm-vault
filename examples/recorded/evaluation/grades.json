@@ -1,0 +1,30 @@
+{
+  "adjudicator": "assistant",
+  "independent": false,
+  "decisions": [
+    {
+      "task_id": "R-7598e5de0661b8f7",
+      "finding_id": "F-68185c539dbde292",
+      "expected_id": "keyword-argument",
+      "rationale": "The stated triggering condition and consequence match this synthetic issue; the authoring assistant knows the scenario."
+    },
+    {
+      "task_id": "R-7598e5de0661b8f7",
+      "finding_id": "F-a4d614870c006703",
+      "expected_id": "borrowed-channel",
+      "rationale": "The stated triggering condition and consequence match this synthetic issue; the authoring assistant knows the scenario."
+    },
+    {
+      "task_id": "R-7598e5de0661b8f7",
+      "finding_id": "F-ca19173f84902b1a",
+      "expected_id": "return-structure",
+      "rationale": "The stated triggering condition and consequence match this synthetic issue; the authoring assistant knows the scenario."
+    },
+    {
+      "task_id": "R-7e0e604a8f536b3a",
+      "finding_id": "F-a4d614870c006703",
+      "expected_id": "borrowed-channel",
+      "rationale": "The stated triggering condition and consequence match this synthetic issue; the authoring assistant knows the scenario."
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+{"id":"a-1","author":"fictional-author","thread_id":"thread-c","text":"Some callers supply this argument by keyword. A parameter rename needs a compatibility path even when positional calls still work."}
+{"id":"a-2","author":"fictional-author","thread_id":"thread-d","text":"The response shape is part of this public function's contract. Returning a plain flag will break code that reads the named result fields."}
+{"id":"a-3","author":"fictional-author","thread_id":"thread-e","text":"Before simplifying this entry point, check how existing client code passes arguments and consumes the return value."}

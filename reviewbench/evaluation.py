@@ -1,6 +1,6 @@
 """Exact fixture matching. This is a regression check, not an AI benchmark."""
 from dataclasses import asdict
-from .engine import Change, LocalReviewer, review
+from .baseline import Change, LocalReviewer, review
 
 
 def evaluate(cases, personas):

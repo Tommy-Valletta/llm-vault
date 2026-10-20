@@ -1,0 +1,19 @@
+{
+  "request_digest": "ee776a8b4920ecc78ddb1ef468bd7f7f4bdde536e351d1dcdc7cb305e4514dc9",
+  "run": {
+    "kind": "assistant",
+    "host": "Codex session",
+    "model": "unknown",
+    "isolation": "shared-session"
+  },
+  "reviewers": [
+    {
+      "id": "P-d560e9cf866a5598",
+      "status": "ok",
+      "findings": [],
+      "limitations": [
+        "The patch adds cleanup of a passed resource, but no surrounding ownership-transfer contract is available. I cannot establish the caller-reuse violation from captured context in this condition."
+      ]
+    }
+  ]
+}

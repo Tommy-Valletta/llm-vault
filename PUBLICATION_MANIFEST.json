@@ -1,5 +1,5 @@
 {
-  "description": "Exact source publication file list; no Git administration, audit records or private inputs are publication files.",
+  "description": "Exact published reconstruction source list. Candidate source plus sanitized publication validation documentation; no private logs or session-generated profiles/reports are included.",
   "files": [
     {
       "path": ".gitignore",
@@ -7,39 +7,7 @@
     },
     {
       "path": "DEPENDENCIES.md",
-      "sha256": "1d7491ee29d821d8c1a0267635811a5722faf32776c14a545b363c3f8cc1a4b9"
-    },
-    {
-      "path": "docs/architecture.md",
-      "sha256": "58649b3cab4e219b09f09c277bf3231e5cab33dd1ba1b5ae92590c67183245e0"
-    },
-    {
-      "path": "docs/decisions.md",
-      "sha256": "79c634d18606b142b5763fbb8e92c78abce8eadfb2b2094aeb1c0c4d6c2d25ee"
-    },
-    {
-      "path": "docs/evaluation.md",
-      "sha256": "7650caefaf7520374eb05333e95eba28478b296a97afd83fd38c3a286478f172"
-    },
-    {
-      "path": "docs/limitations.md",
-      "sha256": "d7910e473c51c033ee271bb3d029b9fdeadd46a87adabf64a35d830f21d95da9"
-    },
-    {
-      "path": "docs/portfolio.md",
-      "sha256": "4ac0ce1d823158107d444118b1e4b594607dc45569489b0f0026ede0d4befb51"
-    },
-    {
-      "path": "evaluation-results.json",
-      "sha256": "fb9686eb7df3785384d5f3875dfc2b2b9cd575081ba22bdc8f593e5d8ce47092"
-    },
-    {
-      "path": "fixtures/cases.json",
-      "sha256": "f666e2e5d2735159b2dd94b429d1b1e970fd62d28011e4e528f437b856fd0f9c"
-    },
-    {
-      "path": "fixtures/history.json",
-      "sha256": "b0ef3ba8ff3db7cbd70d7fcb93a5a60937fe16751ff2dad7f80d3ebb99db70fa"
+      "sha256": "cdb45454232519551ac648fe0e5a5dfd25da5034cf1a2de6066c6692f92e0138"
     },
     {
       "path": "LICENSE",
@@ -47,31 +15,271 @@
     },
     {
       "path": "README.md",
-      "sha256": "be663e2d9945fb8ce02a0b2d8c5bd5a9ed6bc2712776d82c83446e695ca04dfe"
+      "sha256": "c433ddf1f5375bb70a1e8f2ce2da4683c40e5c58166a451439890032acf70213"
+    },
+    {
+      "path": "docs/architecture.md",
+      "sha256": "c16df4eb7caf43230a70e3290487b1af1432b46e7f5d2e2da9e342439d9b1dbb"
+    },
+    {
+      "path": "docs/context.md",
+      "sha256": "4ae8f3088b51dcb46bfc790e697168d8a2c5dcb2f2fbf02ff07112fc8170c835"
+    },
+    {
+      "path": "docs/decisions.md",
+      "sha256": "b2b1a5bdfd24d17d367619bfb18e9cb5ed7cb1e6866211b3c437b9a02d39bfd6"
+    },
+    {
+      "path": "docs/evaluation.md",
+      "sha256": "364594d9ed18ed890173b1d8d1830ad20d931650b359caa7eb0d88cb134f8ca3"
+    },
+    {
+      "path": "docs/limitations.md",
+      "sha256": "fd8bacd314b36cfa327f3a9423ce664c291c8a49b3bf1fa62d361295eee29568"
+    },
+    {
+      "path": "docs/platforms.md",
+      "sha256": "c83827f3d3ea50764f345403e181cdfb4fa03ed0f8b6f32ec7e0a486ca5fb7f2"
+    },
+    {
+      "path": "docs/portfolio.md",
+      "sha256": "654c08a71e7f2f5d4ba812cf9e548dfd0e8b2a7c464c770a4be3b09969323a89"
+    },
+    {
+      "path": "docs/validation.md",
+      "sha256": "259750cd39f755bbe5c95448030325d4b6f9c4f574df7c3daf0f563ddac4ed6a"
+    },
+    {
+      "path": "docs/workflow.md",
+      "sha256": "ea58813764cd02791bd02ecc7c45db3fcfa41b04deccfada6e393a07f74e27c8"
+    },
+    {
+      "path": "evaluation-results.json",
+      "sha256": "4b2a1028e37f8529c47f7d5a4c4fa409ef2c74225e59c95be6a897aeda554e21"
+    },
+    {
+      "path": "examples/changes.json",
+      "sha256": "aa8372500d96355071bb09fbf388335801a2018748b3c2b01d7f88e1087dff96"
+    },
+    {
+      "path": "examples/compatibility-history.jsonl",
+      "sha256": "372016600ac8b9ebeffed6d858feb7590526fbb6dbd495650ef3be1a438536ae"
+    },
+    {
+      "path": "examples/context-selections.json",
+      "sha256": "6544e80756bcb97eed0c4669fb487e5159f4ef6b843e4521edb9916eeca6bf7d"
+    },
+    {
+      "path": "examples/evaluation-cases.json",
+      "sha256": "8fbce284cace32430f638ced44e30bd197f72efe6111c0d0dc7ec3ff032897b5"
+    },
+    {
+      "path": "examples/ownership-history.jsonl",
+      "sha256": "a641b4786cb28d8bd3f796556c31ec1ac621aed8a630260b850065e4e82a1134"
+    },
+    {
+      "path": "examples/recorded/compatibility-draft.json",
+      "sha256": "a3fb41884e4f1f18688b5b677d413371fe8da79663bb241aae27c1d6468c12b8"
+    },
+    {
+      "path": "examples/recorded/compatibility-history.json",
+      "sha256": "22b5798e2f137a9bc15de744d6838efde7104ba9e1d065eb25e52eaccd5c9933"
+    },
+    {
+      "path": "examples/recorded/compatibility-profile.json",
+      "sha256": "05d424d9211390940c75c737b059bf5ba378fec7c7549d40680296b4bb9dcf00"
+    },
+    {
+      "path": "examples/recorded/compatibility-report.json",
+      "sha256": "6835bc047ae1d777a39ac3ce203d5db961fb1fcf3e9afce65932e879375ed0d6"
+    },
+    {
+      "path": "examples/recorded/compatibility-report.md",
+      "sha256": "16fb7a7baea43fa30765387115af2ca011da23c49ef975dd89b8c953ba5483ca"
+    },
+    {
+      "path": "examples/recorded/compatibility-request.json",
+      "sha256": "bea9ef4c364a0208070a8b751e50226e48c37795b79a345b3a6e74bebc9334c1"
+    },
+    {
+      "path": "examples/recorded/compatibility-response.json",
+      "sha256": "0d3dca5fad54a6e4e6256a71c091c5dcbe9e6f339b9e4eb43c1f43d7435c5d97"
+    },
+    {
+      "path": "examples/recorded/compatibility-review-request.json",
+      "sha256": "6e620cf693b7fa6b7a7870f126bc09a65212be115a75b70ac9429c013d05a8f6"
+    },
+    {
+      "path": "examples/recorded/evaluation/control.json",
+      "sha256": "b1e5886604dc7d35d9cf9e7931bdc909224ac2f69aa46991ce9d6f97474f821c"
+    },
+    {
+      "path": "examples/recorded/evaluation/grades.json",
+      "sha256": "6241c254a8c99efc56d159bf3ef457c5abc9b4308fea048d85cf3ce7a6530a52"
+    },
+    {
+      "path": "examples/recorded/evaluation/packets/R-7598e5de0661b8f7.json",
+      "sha256": "6309932623dcf904842159e630e24e8221128f873dd21a8ffebd4066fce4a589"
+    },
+    {
+      "path": "examples/recorded/evaluation/packets/R-7e0e604a8f536b3a.json",
+      "sha256": "e7bf0e90ee8bd1e07fb000adce03ac4e8d1542c6c9f6dec1ba574ce87bd9f748"
+    },
+    {
+      "path": "examples/recorded/evaluation/packets/R-dfd61a4f5e6c0c96.json",
+      "sha256": "585af4a35723b4496980156791a16faea3d862bac5b4031fee777119ef649185"
+    },
+    {
+      "path": "examples/recorded/evaluation/report.json",
+      "sha256": "9f1c5a54a7b3c0abe63d7bea5346f16ca0cb116f643366d1d542f6b66616900b"
+    },
+    {
+      "path": "examples/recorded/evaluation/responses/R-7598e5de0661b8f7.json",
+      "sha256": "dcf6d760c16c2fed1e6b72c34243ed18c2e4781577904d66106102bfbe65724c"
+    },
+    {
+      "path": "examples/recorded/evaluation/responses/R-7e0e604a8f536b3a.json",
+      "sha256": "13c6668e94e4aa46a3f19866cd670cd4bc1e0e0c74c4e2bb714c45e4554e243b"
+    },
+    {
+      "path": "examples/recorded/evaluation/responses/R-dfd61a4f5e6c0c96.json",
+      "sha256": "dd4927e22d5f1aa4ca04e0fb526920b14a6469a4c59415bdf3044d633f5c842f"
+    },
+    {
+      "path": "examples/recorded/ownership-draft.json",
+      "sha256": "25d39a793f8f7299ab601c6a36886d4fc15a52cfbf8de0429d851c909cb99bfc"
+    },
+    {
+      "path": "examples/recorded/ownership-history.json",
+      "sha256": "9381a8a0e61309434436fbc7614c012ce1dbb0c7160788724ca361c069428481"
+    },
+    {
+      "path": "examples/recorded/ownership-profile.json",
+      "sha256": "97c7b8a2ac9b77458d9b0be553d7407113ee079f27725a3a86b60d36f3dcef46"
+    },
+    {
+      "path": "examples/recorded/ownership-report.json",
+      "sha256": "b20c5ee4741102061c3e2fba3cc084944772de66a858d1feb5a32dd540908821"
+    },
+    {
+      "path": "examples/recorded/ownership-report.md",
+      "sha256": "3c10d7f5ff32b6c86daa55dd5cf03b3760b99ca93be2270f776043c1f5d130ae"
+    },
+    {
+      "path": "examples/recorded/ownership-request.json",
+      "sha256": "e39a6119b886b4869ab2439be7b3f2318ab3075b3087343c9a2defae0c4d2cdb"
+    },
+    {
+      "path": "examples/recorded/ownership-response.json",
+      "sha256": "31c8bdb9fffe9fb6b98ed32ada56d230c8d7920b727712a932391651a9a048f2"
+    },
+    {
+      "path": "examples/recorded/ownership-review-request.json",
+      "sha256": "e7bf0e90ee8bd1e07fb000adce03ac4e8d1542c6c9f6dec1ba574ce87bd9f748"
+    },
+    {
+      "path": "examples/recorded/worked-example.json",
+      "sha256": "6c63a1ee0da87adf8c07b0b8dcece02cdc83dcc20e0c22618c99c32bb6497727"
+    },
+    {
+      "path": "examples/source-snapshot.json",
+      "sha256": "acaa5360a55178ed1016a079756037e683d1912e215c06fbbb1f09be80dd0b34"
+    },
+    {
+      "path": "fixtures/cases.json",
+      "sha256": "d91f842b722e6504efd1be29a01f13e9289db44e68f0338f4e37115c9da6fb71"
+    },
+    {
+      "path": "fixtures/history.json",
+      "sha256": "7bbbedd55c916e774fd61b8a6a569fa64624e2e346414db762b228befd2f98bf"
     },
     {
       "path": "reviewbench/__init__.py",
-      "sha256": "c59e6ddab84a2ccbcc9a6c4f8a51e6698d1688836d652ae6fdd2fe07121f248d"
+      "sha256": "c362c38dac0c2ac60a3d5a5a713bb76df4db434dcd67416025a36d598b741eaa"
     },
     {
       "path": "reviewbench/__main__.py",
-      "sha256": "fe4e4b409a30bc2bda992f22ef2f56eb27040a62ef7950c9f527739c80b744df"
+      "sha256": "af256654581f47f8a2a40feba78b701e8ec1d799600b7e1469a97f2c971a77af"
     },
     {
-      "path": "reviewbench/engine.py",
+      "path": "reviewbench/artifacts.py",
+      "sha256": "573560f3b3f892072d2592973a2bea59d2238dd7a089965d2a016f9ad869ad32"
+    },
+    {
+      "path": "reviewbench/baseline.py",
       "sha256": "df0de91c29b426b8798d97c5faf3b18065e26118a451402104250e06e3cca0ca"
     },
     {
+      "path": "reviewbench/context.py",
+      "sha256": "fbd546905efa26dc933c492d0045d4657be1b18e8f6592810ecd246d6e26131c"
+    },
+    {
+      "path": "reviewbench/engine.py",
+      "sha256": "242d893739ca315841159555f7742e4b7cb9c58fc45df0481df82e04cdfb65ac"
+    },
+    {
       "path": "reviewbench/evaluation.py",
-      "sha256": "81c2887edbd9dfc42b644de04cf4e3ceef9ee91348ecab64d3d07938449b0925"
+      "sha256": "ccad0d405bd1f4d49c28f293efd052de77a062e8cb18a8a3adbb3954c92602b9"
+    },
+    {
+      "path": "reviewbench/experiments.py",
+      "sha256": "b6496f5f97a03ca1d4e47dde009bf30b2d8283fe9c80e6dfe625fb9fdf66be56"
+    },
+    {
+      "path": "reviewbench/installation.py",
+      "sha256": "282f8e127ba028776e27a293ca62e1b12f189bde0a13edb6305428e061325857"
+    },
+    {
+      "path": "reviewbench/personas.py",
+      "sha256": "f094f981bdec8807e3732da0aebd2504d071a5dbcfff82460829e441a1ea7458"
+    },
+    {
+      "path": "reviewbench/workflow.py",
+      "sha256": "4542d69bbf1cdabf560eb826b43281a1ae8b302729000fe0fefdef325a54571b"
+    },
+    {
+      "path": "skills/persona-review/SKILL.md",
+      "sha256": "4bf127a6185da5b90667b062a534ae5713cb3f774885c410b1a15e01f686f85a"
+    },
+    {
+      "path": "skills/persona-review/agents/openai.yaml",
+      "sha256": "060f0fb3795816afc5954256f0b10e1526093920b20c16959e21041220eb6b41"
+    },
+    {
+      "path": "skills/persona-review/references/artifacts.md",
+      "sha256": "109b51f53be0420d35f7283ca008d793d16c395ec9713dbe38bbe9811742ab7a"
+    },
+    {
+      "path": "skills/persona-review/references/context.md",
+      "sha256": "3982e48a40ba727a0ca4fc6634c692100ebcbb254b0b1c1ab587ee0c0c154e0f"
+    },
+    {
+      "path": "skills/persona-review/references/evaluation.md",
+      "sha256": "8d06d24084942446edb0ad8aff4d12b705c863464cac782e2614676ce46d6a6d"
+    },
+    {
+      "path": "skills/persona-review/references/sources.md",
+      "sha256": "e4c16e2caf3e2b318bb04e8b4042ae1ece8b0918de37a25341e9229328389698"
+    },
+    {
+      "path": "skills/persona-review/scripts/run.py",
+      "sha256": "6541a453316ea927190dacaf5c2a2d0efb83006ad7b6663ede07be2fd1ed13ac"
     },
     {
       "path": "tests/test_engine.py",
-      "sha256": "4181960d7c0633fdc01cd86eac38d9c8b95911a6d5586fdb164ca7e5be0245cf"
+      "sha256": "f39267f9ba67126ee7359b8e4d5914f8c9ce30a36946aa388df1fe3d89b02553"
+    },
+    {
+      "path": "tests/test_workflow.py",
+      "sha256": "ad4e8b0d218123af0154e64915d7b6ad2e09b3e0248161eaadd2c37a613aeda7"
+    },
+    {
+      "path": "tools/acceptance.py",
+      "sha256": "d5189209d30e9df3383a39b8b85b5ef426710c80c13a4b1d763a1dabd158701c"
     }
   ],
   "manifest_self": {
     "path": "PUBLICATION_MANIFEST.json",
-    "integrity": "Self excluded from recursive hash list; exact bytes covered by the reviewed Git tree and private publication manifest."
+    "integrity": "Excluded from recursive self hashing; tracked as a Git blob in the publication commit."
   }
 }

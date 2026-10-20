@@ -1,0 +1,8 @@
+{
+  "repository": "synthetic-channel-library",
+  "revision": "synthetic-after",
+  "files": [
+    {"path":"library/transmit.py","content":"def transmit(channel, payload, limit=5):\n    channel.send(payload, timeout=limit)\n    channel.close()\n    return True\n"},
+    {"path":"clients/use_channel.py","content":"result = transmit(channel, data, deadline=3)\nif result[\"sent\"]:\n    channel.send(next_data)\n"}
+  ]
+}
