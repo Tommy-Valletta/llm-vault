@@ -1,0 +1,12 @@
+{
+  "label": "New synthetic regression results for a deterministic AST baseline",
+  "matching": "exact rule and after-file line per fixture",
+  "cases": 13,
+  "passed": 13,
+  "true_positives": 8,
+  "false_positives": 0,
+  "false_negatives": 0,
+  "precision": 1.0,
+  "recall": 1.0,
+  "scope": "Newly authored synthetic fixtures only; no historical operational measurements."
+}

@@ -1,0 +1,198 @@
+[
+  {
+    "id": "synthetic-evaluation",
+    "synthetic": true,
+    "change": {
+      "path": "kite_board.py",
+      "before": "",
+      "after": "def read_setting(text):\n    return eval(text)\n"
+    },
+    "context": {},
+    "expected": [
+      {
+        "rule": "dynamic-evaluation",
+        "line": 2
+      }
+    ]
+  },
+  {
+    "id": "synthetic-state",
+    "synthetic": true,
+    "change": {
+      "path": "kite_board.py",
+      "before": "",
+      "after": "def collect(item, items=[]):\n    items.append(item)\n    return items\n"
+    },
+    "context": {},
+    "expected": [
+      {
+        "rule": "mutable-default",
+        "line": 1
+      }
+    ]
+  },
+  {
+    "id": "synthetic-boundary",
+    "synthetic": true,
+    "change": {
+      "path": "kite_board.py",
+      "before": "",
+      "after": "import logging\ndef announce(access_phrase):\n    logging.info(access_phrase)\n"
+    },
+    "context": {
+      "restricted_log_fields": [
+        "access_phrase"
+      ]
+    },
+    "expected": [
+      {
+        "rule": "restricted-log-field",
+        "line": 3
+      }
+    ]
+  },
+  {
+    "id": "synthetic-combined",
+    "synthetic": true,
+    "change": {
+      "path": "kite_board.py",
+      "before": "",
+      "after": "import logging\ndef append_card(text, access_phrase, cards=[]):\n    logging.info(access_phrase)\n    cards.append(eval(text))\n    return cards\n"
+    },
+    "context": {
+      "restricted_log_fields": [
+        "access_phrase"
+      ]
+    },
+    "expected": [
+      {
+        "rule": "mutable-default",
+        "line": 2
+      },
+      {
+        "rule": "restricted-log-field",
+        "line": 3
+      },
+      {
+        "rule": "dynamic-evaluation",
+        "line": 4
+      }
+    ]
+  },
+  {
+    "id": "synthetic-clean",
+    "synthetic": true,
+    "change": {
+      "path": "kite_board.py",
+      "before": "",
+      "after": "import json\ndef read_setting(text):\n    return json.loads(text)\n"
+    },
+    "context": {},
+    "expected": []
+  },
+  {
+    "id": "synthetic-new-state",
+    "synthetic": true,
+    "change": {
+      "path": "kite_board.py",
+      "before": "",
+      "after": "def collect(item, items=None):\n    if items is None:\n        items = []\n    items.append(item)\n    return items\n"
+    },
+    "context": {},
+    "expected": []
+  },
+  {
+    "id": "synthetic-unrestricted-log",
+    "synthetic": true,
+    "change": {
+      "path": "kite_board.py",
+      "before": "",
+      "after": "import logging\nlogging.info(status)\n"
+    },
+    "context": {
+      "restricted_log_fields": [
+        "access_phrase"
+      ]
+    },
+    "expected": []
+  },
+  {
+    "id": "synthetic-without-policy",
+    "synthetic": true,
+    "change": {
+      "path": "kite_board.py",
+      "before": "",
+      "after": "import logging\nlogging.info(access_phrase)\n"
+    },
+    "context": {},
+    "expected": []
+  },
+  {
+    "id": "synthetic-existing-issue",
+    "synthetic": true,
+    "change": {
+      "path": "kite_board.py",
+      "before": "value = eval(text)\nanswer = 41\n",
+      "after": "value = eval(text)\nanswer = 42\n"
+    },
+    "context": {},
+    "expected": []
+  },
+  {
+    "id": "synthetic-removed-issue",
+    "synthetic": true,
+    "change": {
+      "path": "kite_board.py",
+      "before": "value = eval(text)\n",
+      "after": "value = 42\n"
+    },
+    "context": {},
+    "expected": []
+  },
+  {
+    "id": "synthetic-string-only",
+    "synthetic": true,
+    "change": {
+      "path": "kite_board.py",
+      "before": "",
+      "after": "description = \"eval(text) is a risky expression\"\n"
+    },
+    "context": {},
+    "expected": []
+  },
+  {
+    "id": "synthetic-selected-review",
+    "synthetic": true,
+    "change": {
+      "path": "kite_board.py",
+      "before": "",
+      "after": "def f(text, items=[]):\n    return eval(text)\n"
+    },
+    "context": {},
+    "expected": [
+      {
+        "rule": "dynamic-evaluation",
+        "line": 2
+      }
+    ],
+    "concerns": [
+      "input-safety"
+    ]
+  },
+  {
+    "id": "synthetic-multiline-default",
+    "synthetic": true,
+    "change": {
+      "path": "kite_board.py",
+      "before": "",
+      "after": "def collect(\n    items=[],\n):\n    return items\n"
+    },
+    "context": {},
+    "expected": [
+      {
+        "rule": "mutable-default",
+        "line": 2
+      }
+    ]
+  }
+]

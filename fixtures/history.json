@@ -1,0 +1,20 @@
+[
+  {
+    "id": "SYN-INPUT-1",
+    "synthetic": true,
+    "concern": "input-safety",
+    "lesson": "A fictional configuration field should be parsed as data."
+  },
+  {
+    "id": "SYN-STATE-1",
+    "synthetic": true,
+    "concern": "state-safety",
+    "lesson": "Each invocation should begin with its own collection."
+  },
+  {
+    "id": "SYN-BOUNDARY-1",
+    "synthetic": true,
+    "concern": "data-boundaries",
+    "lesson": "The fictional project declares which values may appear in logs."
+  }
+]

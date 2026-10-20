@@ -1,0 +1,77 @@
+{
+  "description": "Exact source publication file list; no Git administration, audit records or private inputs are publication files.",
+  "files": [
+    {
+      "path": ".gitignore",
+      "sha256": "0e3713d01b398ef1152b85cca5e9af584c2477c71a4cce485207d8879ac8917e"
+    },
+    {
+      "path": "DEPENDENCIES.md",
+      "sha256": "1d7491ee29d821d8c1a0267635811a5722faf32776c14a545b363c3f8cc1a4b9"
+    },
+    {
+      "path": "docs/architecture.md",
+      "sha256": "58649b3cab4e219b09f09c277bf3231e5cab33dd1ba1b5ae92590c67183245e0"
+    },
+    {
+      "path": "docs/decisions.md",
+      "sha256": "79c634d18606b142b5763fbb8e92c78abce8eadfb2b2094aeb1c0c4d6c2d25ee"
+    },
+    {
+      "path": "docs/evaluation.md",
+      "sha256": "7650caefaf7520374eb05333e95eba28478b296a97afd83fd38c3a286478f172"
+    },
+    {
+      "path": "docs/limitations.md",
+      "sha256": "d7910e473c51c033ee271bb3d029b9fdeadd46a87adabf64a35d830f21d95da9"
+    },
+    {
+      "path": "docs/portfolio.md",
+      "sha256": "4ac0ce1d823158107d444118b1e4b594607dc45569489b0f0026ede0d4befb51"
+    },
+    {
+      "path": "evaluation-results.json",
+      "sha256": "fb9686eb7df3785384d5f3875dfc2b2b9cd575081ba22bdc8f593e5d8ce47092"
+    },
+    {
+      "path": "fixtures/cases.json",
+      "sha256": "f666e2e5d2735159b2dd94b429d1b1e970fd62d28011e4e528f437b856fd0f9c"
+    },
+    {
+      "path": "fixtures/history.json",
+      "sha256": "b0ef3ba8ff3db7cbd70d7fcb93a5a60937fe16751ff2dad7f80d3ebb99db70fa"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "f8ae35e8775145e3721556692fcc6df4ff9532cb7b0c178aef237c01b3fbf389"
+    },
+    {
+      "path": "README.md",
+      "sha256": "be663e2d9945fb8ce02a0b2d8c5bd5a9ed6bc2712776d82c83446e695ca04dfe"
+    },
+    {
+      "path": "reviewbench/__init__.py",
+      "sha256": "c59e6ddab84a2ccbcc9a6c4f8a51e6698d1688836d652ae6fdd2fe07121f248d"
+    },
+    {
+      "path": "reviewbench/__main__.py",
+      "sha256": "fe4e4b409a30bc2bda992f22ef2f56eb27040a62ef7950c9f527739c80b744df"
+    },
+    {
+      "path": "reviewbench/engine.py",
+      "sha256": "df0de91c29b426b8798d97c5faf3b18065e26118a451402104250e06e3cca0ca"
+    },
+    {
+      "path": "reviewbench/evaluation.py",
+      "sha256": "81c2887edbd9dfc42b644de04cf4e3ceef9ee91348ecab64d3d07938449b0925"
+    },
+    {
+      "path": "tests/test_engine.py",
+      "sha256": "4181960d7c0633fdc01cd86eac38d9c8b95911a6d5586fdb164ca7e5be0245cf"
+    }
+  ],
+  "manifest_self": {
+    "path": "PUBLICATION_MANIFEST.json",
+    "integrity": "Self excluded from recursive hash list; exact bytes covered by the reviewed Git tree and private publication manifest."
+  }
+}
